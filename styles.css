@@ -1,13 +1,31 @@
 body {
-    font-family:'Times New Roman', Times, serif;
+    font-family: 'Times New Roman', Times, serif;
     font-size: 15px;
-    background-image: url(a2.jpg);
+    background-image: url('a2.jpg');
+    height: 100vh; /* Cover the full viewport height */
+    background-size: cover; /* Ensure the image covers the entire background */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+    background-position: center; /* Center the image */
     background-color: #cfeefc;
     display: flex;
-    justify-content: center;
+    flex-direction: column; /* Change to column to include header and footer */
+    justify-content: space-between; /* Space out header, main content, and footer */
     align-items: center;
-    height: 100vh;
     margin: 0;
+    padding: 20px; /* Add padding to prevent content from touching edges */
+    box-sizing: border-box; /* Include padding in element's total width and height */
+}
+
+header {
+    width: 100%;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.5); /* Add a background to distinguish the header */
+    color: white;
+    padding: 10px 0; /* Add padding to the header */
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Ensure the header is always on top */
 }
 
 .container {
@@ -15,16 +33,31 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
+    flex: 1; /* Allow the container to grow and take available space */
+    margin-top: 60px; /* Prevent the container from being hidden behind the header */
 }
 
 .password-manager {
-    background-color:rgb(90, 134, 213);
+    background-color: rgb(90, 134, 213);
     padding: 50px;
     border-radius: 50px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 300px;
     text-align: center;
+}
+
+footer {
+    width: 100%;
+    background-image: url('a2.jpg'); /* Use the same background image */
+    background-size: cover; /* Ensure the image covers the entire background */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+    background-position: center; /* Center the image */
+    padding: 20px;
+    color: white;
+    text-align: center;
+    min-height: 100px; /* Ensure the footer has enough height */
+    position: relative; /* Remove fixed position to avoid overlap issues */
+    z-index: 1000; /* Ensure the footer is on top of other content */
 }
 
 h1 {
@@ -62,3 +95,43 @@ button:hover {
     background-color: #cc0000;
 }
 
+/* Media Queries */
+@media (max-width: 768px) {
+    .password-manager {
+        padding: 30px;
+        width: 250px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    input, button {
+        padding: 8px;
+        font-size: 16px;
+    }
+
+    button {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .password-manager {
+        padding: 20px;
+        width: 200px;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    input, button {
+        padding: 6px;
+        font-size: 14px;
+    }
+
+    button {
+        font-size: 16px;
+    }
+}
